@@ -1,0 +1,7 @@
+﻿  Source.cpp
+d:\documents\github\cs-575\lab 2\lab 2\source.cpp(7): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+d:\documents\github\cs-575\lab 2\lab 2\source.cpp(8): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+d:\documents\github\cs-575\lab 2\lab 2\source.cpp(9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+d:\documents\github\cs-575\lab 2\lab 2\source.cpp(11): warning C4326: return type of 'main' should be 'int' instead of 'void'
+d:\documents\github\cs-575\lab 2\lab 2\source.cpp(19): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Lab 2.vcxproj -> D:\Documents\GitHub\CS-575\Lab 2\Debug\Lab 2.exe
