@@ -4,22 +4,31 @@ CSIT 575
 Lab #3c
 Sec 15150
 */
+
+//include chunk
 #include <iostream>;
 #include <string>;
 #include <iomanip>;
 using namespace std;
 
 
+//Package A constants
 const float packageA_Base = 9.95;
 const float packageA_hrs = 10;
 const float packageA_extra = 2.0;
 
+
+//Package B constants
 const float packageB_Base = 14.95;
 const float packageB_hrs = 20;
 const float packageB_extra = 1.0;
 
+
+//Package C constant 
 const float packageC_Base = 19.95;
 
+
+//random variables
 string package = "";
 float hrs_used = 0.0;
 bool propper_package = false;
@@ -31,7 +40,7 @@ string package_used = "";
 float baseprice = 0.0;
 
 
-
+//Package A math
 void packageA() {
 	cout << "Package A" << endl;
 	package_used = "Package A";
@@ -48,6 +57,7 @@ void packageA() {
 }
 
 
+//Package A math
 void packageB() {
 	cout << "Package B" << endl;
 	package_used = "Package B";
@@ -64,6 +74,7 @@ void packageB() {
 }
 
 
+//Package A math
 void packageC() {
 	cout << "Package C" << endl;
 	package_used = "Package C";
@@ -72,8 +83,10 @@ void packageC() {
 	output_price = packageC_Base;
 }
 
+
+//Main
 int main() {
-	while (!propper_package) {
+	while (!propper_package) {//checks to verify you entered the correct package
 		cout << "What package are you using \"A\" \"B\" or \"C\"" << endl;
 		cin >> package;
 		if (package == "a" || package == "A" || package == "b" || package == "B" || package == "c" || package == "C") {
@@ -83,7 +96,8 @@ int main() {
 			cout << "please enter a proppor package" << endl;
 		}
 	}
-	while (!propper_hrs) {
+
+	while (!propper_hrs) {//checks to make sure you enterd a number <= 200
 		cout << "how many hours have you used this billing cycle? (Please enter a int or float.)" << endl;
 		cin >> hrs_used;
 
@@ -97,13 +111,13 @@ int main() {
 	}
 
 	if (package == "a" || package == "A") {
-		packageA();
+		packageA();//runs package A
 	}
 	else if (package == "b" || package == "B") {
-		packageB();
+		packageB();//runs package B
 	}
 	else if (package == "c" || package == "C") {
-		packageC();
+		packageC();//runs package C
 	}
 
 	//Output:  the bill.  Include the package purchased, the number of hours used, the base charge, the hourly charges and the total.
