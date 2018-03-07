@@ -9,6 +9,9 @@ Sec 15150
 #include <iostream>;
 #include <string>;
 #include <iomanip>;
+void packageA();
+void packageB();
+void packageC();
 using namespace std;
 
 
@@ -38,50 +41,6 @@ float extra_price = 0.0;
 float output_price = 0.0;
 string package_used = "";
 float baseprice = 0.0;
-
-
-//Package A math
-void packageA() {
-	cout << "Package A" << endl;
-	package_used = "Package A";
-	temp_extra_hrs = 0.0;
-	baseprice = packageA_Base;
-	temp_extra_hrs = hrs_used - packageA_hrs;
-	if (!temp_extra_hrs <= 0) {
-		extra_price = temp_extra_hrs * packageA_extra;
-		output_price = packageA_Base + extra_price;
-	}
-	else {
-		output_price = packageA_Base;
-	}
-}
-
-
-//Package A math
-void packageB() {
-	cout << "Package B" << endl;
-	package_used = "Package B";
-	temp_extra_hrs = 0.0;
-	baseprice = packageB_Base;
-	temp_extra_hrs = hrs_used - packageB_hrs;
-	if (!temp_extra_hrs <= 0) {
-		extra_price = temp_extra_hrs * packageA_extra;
-		output_price = packageA_Base + extra_price;
-	}
-	else {
-		output_price = packageA_Base;
-	}
-}
-
-
-//Package A math
-void packageC() {
-	cout << "Package C" << endl;
-	package_used = "Package C";
-	baseprice = packageC_Base;
-	extra_price = 0.0;
-	output_price = packageC_Base;
-}
 
 
 //Main
@@ -131,3 +90,79 @@ int main() {
 	system("pause");
 	return(0);
 }
+
+
+//Package A math
+void packageA() {
+	cout << "Package A" << endl;
+	package_used = "Package A";
+	temp_extra_hrs = 0.0;
+	baseprice = packageA_Base;
+	temp_extra_hrs = hrs_used - packageA_hrs;
+	if (!(temp_extra_hrs <= 0)) {
+		extra_price = temp_extra_hrs * packageA_extra;
+		output_price = packageA_Base + extra_price;
+	}
+	else {
+		output_price = packageA_Base;
+	}
+}
+
+
+//Package B math
+void packageB() {
+	cout << "Package B" << endl;
+	package_used = "Package B";
+	temp_extra_hrs = 0.0;
+	baseprice = packageB_Base;
+	temp_extra_hrs = hrs_used - packageB_hrs;
+	if ((!temp_extra_hrs <= 0)) {
+		extra_price = temp_extra_hrs * packageA_extra;
+		output_price = packageA_Base + extra_price;
+	}
+	else {
+		output_price = packageA_Base;
+	}
+}
+
+
+//Package C math
+void packageC() {
+	cout << "Package C" << endl;
+	package_used = "Package C";
+	baseprice = packageC_Base;
+	extra_price = 0.0;
+	output_price = packageC_Base;
+}
+
+
+/*
+What package are you using "A" "B" or "C"
+a
+how many hours have you used this billing cycle? (Please enter a int or float.)
+8
+Package A
+You chose:                      Package A
+You used:                        8.00 hours.
+The base price is:                  9.95
+The Hourly charges are:             0.00
+Total Price                         9.95
+Press any key to continue . . .
+
+
+
+What package are you using "A" "B" or "C"
+a
+how many hours have you used this billing cycle? (Please enter a int or float.)
+800
+Your time is over 200 hrs!
+how many hours have you used this billing cycle? (Please enter a int or float.)
+
+
+
+
+
+
+
+
+*/
