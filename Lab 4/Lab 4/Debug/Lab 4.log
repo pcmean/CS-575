@@ -1,0 +1,6 @@
+﻿  Source.cpp
+d:\documents\github\cs-575\lab 4\lab 4\source.cpp(9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+d:\documents\github\cs-575\lab 4\lab 4\source.cpp(10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+d:\documents\github\cs-575\lab 4\lab 4\source.cpp(11): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+d:\documents\github\cs-575\lab 4\lab 4\source.cpp(68): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Lab 4.vcxproj -> D:\Documents\GitHub\CS-575\Lab 4\Debug\Lab 4.exe
