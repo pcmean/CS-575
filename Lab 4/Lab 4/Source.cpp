@@ -6,57 +6,57 @@ Sec 15150
 */
 
 //include chunk
-#include <iostream>;
-#include <string>;
-#include <iomanip>;
+#include <iostream>
+#include <string>
+#include <iomanip>
 
 using namespace std;
 
-string continue_question = "";
+
 bool continue_loop = true;
-string drink = "";
-int hours_since_drink = 0;
-float mg_caffeine = 0.0;
 bool propper_mg = false;
-string tempdrink;
 bool propper_hr = false;
-int hr_time = 0;
 bool good_return = false;
+string continue_question = "";
+string drink = "";
+string tempdrink;
+int hours_since_drink = 0;
+int hr_time = 0;
+float mg_caffeine = 0.0;
+
 
 int main() {
 	while (continue_loop) {
 		cout << "What drink do you have?" << endl;
 		cin.ignore();
 		getline(cin, drink);
-		while (!propper_mg) {//checks to verify you entered the correct drink
-			cout << "How many MG of cafeen dose your drink have?" << endl;
+		while (!propper_mg) {	//checks to verify you entered the correct ammount of caffeine
+			cout << "How many MG of caffeine does your drink have?" << endl;
 			cin >> mg_caffeine;
+			system("pause");
 			if (cin) {
 				if (mg_caffeine <= 350) { propper_mg = true; }
 				else { cout << "That is way to much!!!" << endl; }
 			}
 			else {
-				cout << "Please enter a proppor ammount of cafeen." << endl;
+				cout << "Please enter a proper ammount of caffeine." << endl;
 				cin.clear();
-				cin.ignore();
+				cin.ignore(100, '\n');
 			}
+
 		}
 
-		while (!propper_hr) {//checks to verify you entered the correct drink
+		while (!propper_hr) {//checks to verify you entered the correct ammount of hrs
 			cout << "How many hrs do you want to see?" << endl;
 			cin >> hr_time;
 			if (cin) {
-				if (hr_time <= 14) {
-					propper_hr = true;
-				}
-				else {
-					cout << "That is to much time." << endl;
-				}
+				if (hr_time <= 14) { propper_hr = true; }
+				else { cout << "That is to much time." << endl; }
 			}
 			else {
-				cout << "Please enter a proppor ammount of time." << endl;
+				cout << "Please enter a proper ammount of time." << endl;
 				cin.clear();
-				cin.ignore();
+				cin.ignore(100, '\n');
 			}
 		}
 
@@ -64,19 +64,21 @@ int main() {
 		cout << fixed << showpoint << setprecision(2);
 		cout << "\n\n\n\n\n\nDrink name: " << drink << "mg" << endl;
 		cout << "0\t" << mg_caffeine << endl;
+
+
 		for (int ctr = 1; ctr <= hr_time; ctr++) {
 			mg_caffeine = mg_caffeine - mg_caffeine * 0.13;
 			cout << ctr << "\t" << mg_caffeine << "mg" << endl;
 		}
 
 
-		
+
 		//rerun?
 		good_return = false;
 		cout << "do you want to run this again \"yes\" or \"no\"" << endl;
 		while (!good_return) {
 			cin >> continue_question;
-			if (cin&&( continue_question == "no" || continue_question == "No"|| continue_question == "yes" || continue_question == "Yes")) {
+			if (cin && (continue_question == "no" || continue_question == "No" || continue_question == "yes" || continue_question == "Yes")) {
 				if (continue_question == "yes" || continue_question == "yes") {
 					cout << "OK here we go again \n\n\n\n\n\n\n\n\n\n" << endl;
 					good_return = true;
@@ -84,7 +86,7 @@ int main() {
 					propper_mg = false;
 					continue_loop = true;
 				}
-				else if(continue_question == "no" || continue_question == "no") {
+				else if (continue_question == "no" || continue_question == "no") {
 					continue_loop = false;
 					good_return = true;
 				}
@@ -102,6 +104,10 @@ int main() {
 }
 
 /*
+test data:
+cout << "cin good:" << cin.good() << " bad:" << cin.bad() << " fail:" << cin.fail() << " eof:" << cin.eof() << endl;
+
+
 What drink do you have?
 16 oz Starbucks coffee
 How many MG of cafeen dose your drink have?
