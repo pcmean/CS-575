@@ -1,4 +1,3 @@
 ﻿  Source.cpp
-d:\documents\github\cs-575\lab 4\lab 4\source.cpp(70): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  LINK : D:\Documents\GitHub\CS-575\Lab 4\Debug\Lab 4.exe not found or not built by the last incremental link; performing full link
+d:\documents\github\cs-575\lab 4\lab 4\source.cpp(71): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Lab 4.vcxproj -> D:\Documents\GitHub\CS-575\Lab 4\Debug\Lab 4.exe

@@ -22,6 +22,7 @@ string drink = "";
 string tempdrink;
 int hours_since_drink = 0;
 int hr_time = 0;
+int maxhr = 59;
 float mg_caffeine = 0.0;
 
 
@@ -33,7 +34,7 @@ int main() {
 		while (!propper_mg) {	//checks to verify you entered the correct ammount of caffeine
 			cout << "How many MG of caffeine does your drink have?" << endl;
 			cin >> mg_caffeine;
-			system("pause");
+			//system("pause");
 			if (cin) {
 				if (mg_caffeine <= 350) { propper_mg = true; }
 				else { cout << "That is way to much!!!" << endl; }
@@ -50,7 +51,7 @@ int main() {
 			cout << "How many hrs do you want to see?" << endl;
 			cin >> hr_time;
 			if (cin) {
-				if (hr_time <= 14) { propper_hr = true; }
+				if (hr_time <= maxhr) { propper_hr = true; }
 				else { cout << "That is to much time." << endl; }
 			}
 			else {
