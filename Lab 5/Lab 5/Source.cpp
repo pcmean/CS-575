@@ -44,11 +44,11 @@ int main(){
 			if (num>max) {
 				max = num;
 			}
-			outfile << num<<"   ";
+			outfile << num<<"\t";
 			total += num;
 		}
 		average = total / 7;
-		outfile << endl << "Minimum: " << min << endl << "Maximum: " << max << endl << "Total: " << total << endl << "Average" << average << "\n\n\n\n";
+		outfile << endl << "Minimum: " << min << endl << "Maximum: " << max << endl << "Total: " << total << endl << "Average: " << average << "\n\n\n\n";
 	}
 	infile.close();
 	outfile.close();
@@ -125,4 +125,87 @@ Minimum: 369
 Maximum: 369
 Total: 24070
 Average3438
+
+*/
+
+
+
+
+/*
+===================FIXED===================
+
+
+346	130	982	90	656	117	595
+Minimum: 90
+Maximum: 982
+Total: 2916
+Average: 416
+
+
+
+415	948	126	4	558	571	87
+Minimum: 4
+Maximum: 948
+Total: 5625
+Average: 803
+
+
+
+42	360	412	721	463	47	119
+Minimum: 42
+Maximum: 721
+Total: 7789
+Average: 1112
+
+
+
+441	190	985	214	509	2	571
+Minimum: 2
+Maximum: 985
+Total: 10701
+Average: 1528
+
+
+
+77	81	681	651	995	93	74
+Minimum: 74
+Maximum: 995
+Total: 13353
+Average: 1907
+
+
+
+310	9	995	561	92	14	288
+Minimum: 9
+Maximum: 995
+Total: 15622
+Average: 2231
+
+
+
+466	664	892	8	766	34	639
+Minimum: 8
+Maximum: 892
+Total: 19091
+Average: 2727
+
+
+
+151	64	98	813	67	834	369
+Minimum: 64
+Maximum: 834
+Total: 21487
+Average: 3069
+
+
+
+369	369	369	369	369	369	369
+Minimum: 369
+Maximum: 369
+Total: 24070
+Average: 3438
+
+
+
+
 */
