@@ -1,11 +1,8 @@
 ﻿  Source.cpp
-d:\documents\github\cs-575\lab6\lab6\source.cpp(52): warning C4305: 'initializing': truncation from 'double' to 'float'
 d:\documents\github\cs-575\lab6\lab6\source.cpp(53): warning C4305: 'initializing': truncation from 'double' to 'float'
 d:\documents\github\cs-575\lab6\lab6\source.cpp(54): warning C4305: 'initializing': truncation from 'double' to 'float'
-d:\documents\github\cs-575\lab6\lab6\source.cpp(65): warning C4101: 'tax': unreferenced local variable
-d:\documents\github\cs-575\lab6\lab6\source.cpp(64): warning C4101: 'surcharge': unreferenced local variable
-d:\documents\github\cs-575\lab6\lab6\source.cpp(63): warning C4101: 'tip': unreferenced local variable
-d:\documents\github\cs-575\lab6\lab6\source.cpp(122): warning C4305: 'initializing': truncation from 'double' to 'float'
-d:\documents\github\cs-575\lab6\lab6\source.cpp(125): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\documents\github\cs-575\lab6\lab6\source.cpp(55): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\documents\github\cs-575\lab6\lab6\source.cpp(125): warning C4305: 'initializing': truncation from 'double' to 'float'
 d:\documents\github\cs-575\lab6\lab6\source.cpp(128): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\documents\github\cs-575\lab6\lab6\source.cpp(131): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Lab6.vcxproj -> D:\Documents\GitHub\CS-575\Lab6\Debug\Lab6.exe

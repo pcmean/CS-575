@@ -49,6 +49,7 @@ using namespace std;
 void getGata(int & id, int & adults, int & kids, char & mealType, char & weekend, float & deposit);
 float mealCost(int adults, int kids, char meal);
 void extraCost(float mealcost, float & tax, float & tip, float & surcharge, char weekend);
+void output(int id, int adults, int kids, char mealType, char weekend, float deposit, float tip, float surcharge, float tax, float toatlMealCost);
 const float taxpresent = 0.18;
 const float tippresent = 0.18;
 const float surchargePrecent = 0.07;
@@ -73,6 +74,8 @@ int main() {
 		getGata(id,adults,kids,mealType,weekend,deposit);
 		cout << "id:\t" << id << "\tadults:\t" << adults << "\tkids:\t" << kids << "\tMeal Time:\t" << mealType << "\tWeekend:\t" << weekend << endl;
 		toatlMealCost=mealCost(adults,kids,mealType);
+
+		extraCost(toatlMealCost, tax, tip, surcharge, weekend);
 
 		
 		good_return = false;
@@ -148,5 +151,23 @@ void extraCost(float totalmealcost, float & tax, float & tip, float & surcharge,
 }
 
 
-//Function 4 : Calculate total bill and output data to the screen.Output : an itemized bill listing the party ID, number of adults, children, cost for meals, surcharge(if appropriate), tax and tip, total cost of the party, deposit(if any), total balance due.
+/*Function 4 : Calculate total bill and output data to the screen.Output : an itemized bill listing the 
+party ID, 
+number of adults, 
+children, 
+cost for meals,
+surcharge(if appropriate),
+tax and tip,
+total cost of the party,
+deposit(if any),
+total balance due.
+*/
+void output(int id, int adults, int kids, char mealType, char weekend, float deposit, float tip, float surcharge, float tax, float toatlMealCost){
+	cout << "id:\t" << id << endl;
+	cout << "adults:\t" << adults << endl;
+	cout << "kids:\t" << kids << endl;
+	cout << "Meal Type:\t" << mealType << endl;
+	cout << "";
 
+
+}
