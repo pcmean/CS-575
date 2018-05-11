@@ -43,13 +43,14 @@ Sec 15150
 //include chunk
 #include <iostream>
 #include <string>
+#include <fstream>
 #include <iomanip>
 using namespace std;
 
 void getGata(int & id, int & adults, int & kids, char & mealType, char & weekend, float & deposit);
 float mealCost(int adults, int kids, char meal);
 void extraCost(float mealcost, float & tax, float & tip, float & surcharge, char weekend);
-void output(int id, int adults, int kids, char mealType, char weekend, float deposit, float tip, float surcharge, float tax, float toatlMealCost);
+void output(int id, int adults, int kids, char mealType, float totalDue, float deposit, float tip, float surcharge, float tax, float toatlMealCost);
 const float taxpresent = 0.18;
 const float tippresent = 0.18;
 const float surchargePrecent = 0.07;
@@ -60,26 +61,28 @@ int main() {
 	int kids;
 	char mealType;
 	char weekend;
-	float deposit;
+	float deposit = 0.0;
 	float tip;
 	float surcharge;
 	float tax;
 	float toatlMealCost;
-	bool good_return=false;
+	float totalDue;
+	bool good_return = false;
 	string continue_question;
 	bool continue_loop = true;
 	while (continue_loop) {
 
+		cout << fixed << showpoint << setprecision(2);
 
-		getGata(id,adults,kids,mealType,weekend,deposit);
-		cout << "id:\t" << id << "\tadults:\t" << adults << "\tkids:\t" << kids << "\tMeal Time:\t" << mealType << "\tWeekend:\t" << weekend << endl;
-		toatlMealCost=mealCost(adults,kids,mealType);
-
+		getGata(id, adults, kids, mealType, weekend, deposit);
+		//cout << "id:\t" << id << "\tadults:\t" << adults << "\tkids:\t" << kids << "\tMeal Time:\t" << mealType << "\tWeekend:\t" << weekend << endl;
+		toatlMealCost = mealCost(adults, kids, mealType);
 		extraCost(toatlMealCost, tax, tip, surcharge, weekend);
+		totalDue = (toatlMealCost + tax + tip + surcharge) - deposit;
+		output(id, adults, kids, mealType, totalDue, deposit, tip, surcharge, tax, toatlMealCost);
 
-		
 		good_return = false;
-		cout << "do you want to run this again \"yes\" or \"no\"" << endl;
+		cout << "\n\n\n\ndo you want to run this again \"yes\" or \"no\"" << endl;
 		while (!good_return) {
 			cin >> continue_question;
 			if (cin && (continue_question == "no" || continue_question == "No" || continue_question == "yes" || continue_question == "Yes")) {
@@ -109,7 +112,7 @@ void getGata(int & id, int & adults, int & kids, char & mealType, char & weekend
 	cin >> id;
 	cout << "How many adults are in your party?" << endl;
 	cin >> adults;
-	cout << "How many adults are in your party?" << endl;
+	cout << "How many kids are in your party?" << endl;
 	cin >> kids;
 	cout << "Enter the meal type either \"D\" or \"S\"" << endl;
 	cin >> mealType;
@@ -120,14 +123,14 @@ void getGata(int & id, int & adults, int & kids, char & mealType, char & weekend
 }
 
 //Function 2 : Calculate cost of the meals for adults and children. For adults, the deluxe meals will cost $25.80 per person and the standard meals will cost $21.75 per person.Children's meals will cost 60 percent of adult meals. Everyone within a given party must be served the same meal type.  Return the total cost of the meals.
-float mealCost(int adults, int kids, char meal){
+float mealCost(int adults, int kids, char meal) {
 	float totalMealCost = 0.0;
 	float deluxMeal = 25.80;
 	float standardMeal = 21.75;
 	if (meal == 'S') {
 		totalMealCost = (adults*standardMeal) + (kids*(standardMeal*0.6));
 	}
-	else if(meal == 'D') {
+	else if (meal == 'D') {
 		totalMealCost = (adults*deluxMeal) + (kids*(deluxMeal*0.6));
 	}
 	return totalMealCost;
@@ -136,10 +139,10 @@ float mealCost(int adults, int kids, char meal){
 //Function 3 : Calculate additional costs. Calculate tip and tax. All customers will be charged the same rate for tip and tax, (currently 18 percent applied only to the cost of the food).Calculate surcharge, currently 7 percent, which is added to the total bill if the catering is to be done on the weekend(Friday, Saturday, or Sunday).Return the tip / tax and the surcharge.
 
 void extraCost(float totalmealcost, float & tax, float & tip, float & surcharge, char weekend) {
-	
+
 	tax = taxpresent * totalmealcost;
 	tip = tippresent * totalmealcost;
-	
+
 	if (weekend == 'Y') {
 		surcharge = totalmealcost * surchargePrecent;
 	}
@@ -151,10 +154,10 @@ void extraCost(float totalmealcost, float & tax, float & tip, float & surcharge,
 }
 
 
-/*Function 4 : Calculate total bill and output data to the screen.Output : an itemized bill listing the 
-party ID, 
-number of adults, 
-children, 
+/*Function 4 : Calculate total bill and output data to the screen.Output : an itemized bill listing the
+party ID,
+number of adults,
+children,
 cost for meals,
 surcharge(if appropriate),
 tax and tip,
@@ -162,12 +165,13 @@ total cost of the party,
 deposit(if any),
 total balance due.
 */
-void output(int id, int adults, int kids, char mealType, char weekend, float deposit, float tip, float surcharge, float tax, float toatlMealCost){
-	cout << "id:\t" << id << endl;
-	cout << "adults:\t" << adults << endl;
-	cout << "kids:\t" << kids << endl;
-	cout << "Meal Type:\t" << mealType << endl;
-	cout << "";
-
-
+void output(int id, int adults, int kids, char mealType, float totalDue, float deposit, float tip, float surcharge, float tax, float toatlMealCost) {
+	cout << "id:\t\t\t\t" << id << endl;
+	cout << "adults:\t\t\t\t" << adults << endl;
+	cout << "kids:\t\t\t\t" << kids << endl;
+	cout << "Meal Cost:\t\t\t" << setw(8) << toatlMealCost << endl;
+	cout << "Tax and Tip:\t\t\t" << setw(8) << tax + tip << endl;
+	cout << "Total Cost for the party:\t" << setw(8) << tax + tip + surcharge + toatlMealCost << endl;
+	cout << "deposit(if any)\t\t\t" << setw(8) << deposit << endl;
+	cout << "total balance due:\t\t" << setw(8) << totalDue << endl;
 }

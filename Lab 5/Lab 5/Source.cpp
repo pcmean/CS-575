@@ -1,14 +1,14 @@
 /*
 Walter Hicks
 CSIT 575
-Lab #5
+Lab #5a
 Sec 15150
 */
 
 //include chunk
 #include <iostream>
 #include <fstream>
-#include <iomanip>
+//#include <iomanip>
 #include <string>
 
 using namespace std;
