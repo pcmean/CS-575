@@ -47,15 +47,17 @@ Sec 15150
 #include <iomanip>
 using namespace std;
 
-void getGata(int & id, int & adults, int & kids, char & mealType, char & weekend, float & deposit);
+void getData(int & id, int & adults, int & kids, char & mealType, char & weekend, float & deposit);
+bool goodData(int id, int adults, int kids, char mealType, char weekend, float deposit);
 float mealCost(int adults, int kids, char meal);
 void extraCost(float mealcost, float & tax, float & tip, float & surcharge, char weekend);
-void output(int id, int adults, int kids, char mealType, float totalDue, float deposit, float tip, float surcharge, float tax, float toatlMealCost);
+void output(int id, int adults, int kids, char mealType, float totalDue, float deposit, float tip, float surcharge, float tax, float toatlMealCost, char weekend);
 const float taxpresent = 0.18;
 const float tippresent = 0.18;
 const float surchargePrecent = 0.07;
 ifstream infile;
 ofstream outfile;
+ofstream errorFile;
 
 int main() {
 	int id;
@@ -80,18 +82,21 @@ int main() {
 		exit(1);
 	}
 	outfile.open("Output.txt");
+	errorFile.open("Error.txt");
 	while (!infile.eof()) {
 
 		outfile << fixed << showpoint << setprecision(2);
 
-		getGata(id, adults, kids, mealType, weekend, deposit);
-		//outfile << "id:\t" << id << "\tadults:\t" << adults << "\tkids:\t" << kids << "\tMeal Time:\t" << mealType << "\tWeekend:\t" << weekend << endl;
-		toatlMealCost = mealCost(adults, kids, mealType);
-		extraCost(toatlMealCost, tax, tip, surcharge, weekend);
-		totalDue = (toatlMealCost + tax + tip + surcharge) - deposit;
-		output(id, adults, kids, mealType, totalDue, deposit, tip, surcharge, tax, toatlMealCost);
+		getData(id, adults, kids, mealType, weekend, deposit);
 
-		good_return = false;
+		//outfile << "id:\t" << id << "\tadults:\t" << adults << "\tkids:\t" << kids << "\tMeal Time:\t" << mealType << "\tWeekend:\t" << weekend << endl;
+		
+		if (goodData(id, adults, kids, mealType, weekend, deposit)) {
+			toatlMealCost = mealCost(adults, kids, mealType);
+			extraCost(toatlMealCost, tax, tip, surcharge, weekend);
+			totalDue = (toatlMealCost + tax  + surcharge) - deposit;
+			output(id, adults, kids, mealType, totalDue, deposit, tip, surcharge, tax, toatlMealCost, weekend);
+		}
 	}
 	infile.close();
 	outfile.close();
@@ -100,7 +105,7 @@ int main() {
 }
 //Function 1:  Create a function to input data from a user at the keyboard.See sample data below.Validate the data—meal type must be S or D, Weekend must be Y or N, deposit cannot be negative.Output errors with appropriate messages to the screen.Test this module.
 
-void getGata(int & id, int & adults, int & kids, char & mealType, char & weekend, float & deposit) {
+void getData(int & id, int & adults, int & kids, char & mealType, char & weekend, float & deposit) {
 	cout << "What is the party ID?" << endl;
 	infile >> id;
 	cout << id << endl;
@@ -119,6 +124,39 @@ void getGata(int & id, int & adults, int & kids, char & mealType, char & weekend
 	cout << "What is the ammount deposit" << endl;
 	infile >> deposit;
 	cout << deposit<<endl;
+}
+
+//extra funtion to check for good data
+bool goodData(int id, int adults, int kids, char mealType, char weekend, float deposit) {
+	bool skip = false;
+	if(adults<0){
+		skip = true;
+		cout << "Invalid ammount of adults: " << adults << endl;
+		errorFile << "Invalid ammount of adults: " << adults << endl;
+	}
+	if (kids<0) {
+		skip = true;
+		cout << "Invalid ammount of kids: " << kids << endl;
+		errorFile << "Invalid ammount of kids: " << kids << endl;
+	}
+	if (mealType!='S'&& mealType != 'D') {
+		skip = true;
+		cout << "Invalid mealtype: " << mealType << endl;
+		errorFile << "Invalid mealtype: " << mealType << endl;
+	}
+	if (weekend!='Y'&& weekend != 'N'){
+		skip = true;
+		cout << "Invalid value for weekend: " << weekend << endl;
+		errorFile << "Invalid value for weekend: " << weekend << endl;
+	}
+	if (skip == true) {
+		cout << "skipping party id" << id;
+		errorFile << "skipping party id: " << id << "\n\n\n";
+		return false;
+	}
+	else {
+		return true;
+	}
 }
 
 //Function 2 : Calculate cost of the meals for adults and children. For adults, the deluxe meals will cost $25.80 per person and the standard meals will cost $21.75 per person.Children's meals will cost 60 percent of adult meals. Everyone within a given party must be served the same meal type.  Return the total cost of the meals.
@@ -152,7 +190,6 @@ void extraCost(float totalmealcost, float & tax, float & tip, float & surcharge,
 
 }
 
-
 /*Function 4 : Calculate total bill and output data to the screen.Output : an itemized bill listing the
 party ID,
 number of adults,
@@ -164,14 +201,25 @@ total cost of the party,
 deposit(if any),
 total balance due.
 */
-void output(int id, int adults, int kids, char mealType, float totalDue, float deposit, float tip, float surcharge, float tax, float toatlMealCost) {
+void output(int id, int adults, int kids, char mealType, float totalDue, float deposit, float tip, float surcharge, float tax, float toatlMealCost, char weekend) {
 	outfile << "id:\t\t\t\t\t\t\t" << id << endl;
 	outfile << "adults:\t\t\t\t\t\t" << adults << endl;
 	outfile << "kids:\t\t\t\t\t\t" << kids << endl;
 	outfile << "Meal Cost:\t\t\t\t\t" << setw(8) << toatlMealCost << endl;
-	outfile << "Tax and Tip:\t\t\t\t" << setw(8) << tax + tip << endl;
-	outfile << "Total Cost for the party:\t" << setw(8) << tax + tip + surcharge + toatlMealCost << endl;
+	outfile << "Tax and Tip:\t\t\t\t" << setw(8) << tax << endl;
+	if (weekend == 'Y') {
+		outfile << surcharge << endl;
+	}
+	outfile << "Total Cost for the party:\t" << setw(8) << tax + surcharge + toatlMealCost << endl;
 	outfile << "deposit(if any)\t\t\t\t" << setw(8) << deposit << endl;
 	outfile << "total balance due:\t\t\t" << setw(8) << totalDue << endl;
 	outfile << "\n\n\n\n\n\n\n\n";
 }
+
+
+
+/*
+
+
+
+*/

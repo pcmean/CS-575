@@ -1,0 +1,26 @@
+EVEN AREA
+Even Array:	46	30	82	90	56	16	48	26	4	58	0	78	92	60	12	90	14	52	16	80	102	34	10	92	88	66	64	92	66	64	
+
+Minimum: 0
+Maximum: 102
+Total: 1628
+Average: 54
+
+
+
+Even over Avreage:	82	90	56	58	78	92	60	90	80	102	92	88	66	64	92	66	64	
+
+
+ODD AREA
+Odd Array:	17	95	21	63	47	19	41	85	-9	71	79	51	95	79	95	61	89	63	39	5	
+
+Minimum: -9
+Maximum: 95
+Total: 1106
+Average: 55
+
+
+
+Odd over Avreage:	95	63	85	71	79	95	79	95	61	89	63	
+
+

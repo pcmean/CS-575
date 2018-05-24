@@ -1,0 +1,16 @@
+Invalid mealtype: R
+skipping party id: 8
+
+
+Invalid value for weekend: R
+skipping party id: 9
+
+
+Invalid ammount of adults: -3
+skipping party id: 11
+
+
+Invalid ammount of kids: -1
+skipping party id: 12
+
+

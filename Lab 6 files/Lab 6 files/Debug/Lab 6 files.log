@@ -1,8 +1,8 @@
 ﻿  Source.cpp
-e:\walter new\documents\github\cs-575\lab 6 files\lab 6 files\source.cpp(54): warning C4305: 'initializing': truncation from 'double' to 'float'
-e:\walter new\documents\github\cs-575\lab 6 files\lab 6 files\source.cpp(55): warning C4305: 'initializing': truncation from 'double' to 'float'
-e:\walter new\documents\github\cs-575\lab 6 files\lab 6 files\source.cpp(56): warning C4305: 'initializing': truncation from 'double' to 'float'
-e:\walter new\documents\github\cs-575\lab 6 files\lab 6 files\source.cpp(127): warning C4305: 'initializing': truncation from 'double' to 'float'
-e:\walter new\documents\github\cs-575\lab 6 files\lab 6 files\source.cpp(130): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-e:\walter new\documents\github\cs-575\lab 6 files\lab 6 files\source.cpp(133): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Lab 6 files.vcxproj -> E:\Walter New\Documents\GitHub\CS-575\Lab 6 files\Debug\Lab 6 files.exe
+d:\documents\github\cs-575\lab 6 files\lab 6 files\source.cpp(55): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\documents\github\cs-575\lab 6 files\lab 6 files\source.cpp(56): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\documents\github\cs-575\lab 6 files\lab 6 files\source.cpp(57): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\documents\github\cs-575\lab 6 files\lab 6 files\source.cpp(169): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\documents\github\cs-575\lab 6 files\lab 6 files\source.cpp(172): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\documents\github\cs-575\lab 6 files\lab 6 files\source.cpp(175): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Lab 6 files.vcxproj -> D:\Documents\GitHub\CS-575\Lab 6 files\Debug\Lab 6 files.exe
