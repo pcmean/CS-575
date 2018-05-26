@@ -1,0 +1,6 @@
+House ID			Income		Memeber of Household
+WHVC		       34000	5
+EEEE		       36000	5
+JURY		      100000	5
+KNEL		       80000	4
+LIST		       41000	3

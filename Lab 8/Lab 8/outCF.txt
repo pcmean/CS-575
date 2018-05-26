@@ -1,5 +1,0 @@
-AAAA		          10500	8
-DATA		           8000	3
-FADE		           8500	4
-HILO		           3000	1
-MEMM		           5000	2
