@@ -1,5 +1,4 @@
 ﻿  Source.cpp
-d:\documents\github\cs-575\lab 8\lab 8\source.cpp(20): warning C4101: 'order': unreferenced local variable
-d:\documents\github\cs-575\lab 8\lab 8\source.cpp(18): warning C4101: 'income': unreferenced local variable
-d:\documents\github\cs-575\lab 8\lab 8\source.cpp(19): warning C4101: 'resedents': unreferenced local variable
-  Lab 8.vcxproj -> D:\Documents\GitHub\CS-575\Lab 8\Debug\Lab 8.exe
+e:\walter new\documents\github\cs-575\lab 8\lab 8\source.cpp(26): warning C4101: 'order': unreferenced local variable
+e:\walter new\documents\github\cs-575\lab 8\lab 8\source.cpp(104): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Lab 8.vcxproj -> E:\Walter New\Documents\GitHub\CS-575\Lab 8\Debug\Lab 8.exe

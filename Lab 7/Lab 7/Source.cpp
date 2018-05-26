@@ -46,11 +46,11 @@ int main() {
 			odd[oddctr] = tempnum;
 			oddctr++;
 		}
-		
+
 	}
 
 	outfile << "EVEN AREA" << endl;
-	
+
 	outfile << "Even Array:\t";
 	for (int ctr = 0; ctr < evenctr; ctr++) {
 		outfile << even[ctr] << "\t";
@@ -73,7 +73,7 @@ int main() {
 	oddAverage = minmaxavg(odd, oddctr);
 	outfile << "Odd over Avreage:\t";
 	overavg(odd, oddctr, oddAverage);
-	
+
 
 
 	infile.close();
@@ -87,12 +87,12 @@ int main() {
 
 int minmaxavg(int myarray[], int arraysize) {
 	int num;
-	int min=0;
-	int max=0;
-	int total=0;
+	int min = 0;
+	int max = 0;
+	int total = 0;
 	int average;
 	for (int ctr = 0; ctr < arraysize; ctr++) {
-		num=myarray[ctr];
+		num = myarray[ctr];
 		if (ctr == 1) {
 			min = num;
 			max = num;
@@ -116,11 +116,11 @@ void overavg(int myarray[], int arraysize, int avg) {
 	for (int ctr = 0; ctr < arraysize; ctr++) {
 		num = myarray[ctr];
 		if (num > avg) {
-			outfile<<num<<"\t";
+			outfile << num << "\t";
 		}
 
 	}
-	outfile <<"\n\n" << endl;
+	outfile << "\n\n" << endl;
 }
 
 
